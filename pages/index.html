@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> @title </title>
+</head>
+<style>
+    .child {
+        color: white;
+        border: solid;
+        border-color: blue;
+        background-color: yellowgreen;
+
+    }
+
+    .child:hover {
+        background-color: greenyellow;
+    }
+</style>
+
+<body onload="sayHello()">
+
+    <h1>Sui</h1>
+
+    <div id="list">Nums</div>
+
+    <button>Click me</button>
+
+    <p></p>
+    <script>
+        async function sayHello() {
+
+            let url = "https://api.nasa.gov/planetary/apod?api_key=y6gSY25L6QZ6lVksvP4kO5abx0gvrqBsaFCdz6oI"
+            let text = await fetch(url).then(res => res.json())
+            document.querySelector("p").innerHTML = text.explanation
+            document.getElementById("list").innerHTML = "@alert"
+        }
+
+        let colour = "@colour"
+
+
+        let elem = document.querySelector("#list")
+
+        document.querySelector("button").addEventListener("click", () => {
+            let child = document.createElement("h1");
+            child.innerText = "Sui"
+            child.style.color = colour;
+            child.classList.add("child")
+
+            elem.appendChild(child)
+        })
+
+
+    </script>
+</body>
+
+</html>
